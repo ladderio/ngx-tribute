@@ -7,7 +7,7 @@
     "@angular/forms": "^6.0.0-rc.0 || ^6.0.0",
     "tributejs": "^3.0.0"
   },
-  "description": "Angular 2+ wrapper for Zurb's Tribute.js library for mentions",
+  "description": "Angular 2+ wrapper for Zurb's Tribute.js library for native @mentions",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
