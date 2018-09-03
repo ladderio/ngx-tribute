@@ -1,0 +1,29 @@
+{
+  "name": "@ladder/ngx-tribute",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/forms": "^6.0.0-rc.0 || ^6.0.0",
+    "tributejs": "^3.0.0"
+  },
+  "description": "Angular 2+ wrapper for Zurb's Tribute.js library for mentions",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ladderio/ngx-tribute.git"
+  },
+  "keywords": [
+    "mentions",
+    "tribute",
+    "angular"
+  ],
+  "author": "Adrian Slipko <adrian@ladder.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ladderio/ngx-tribute/issues"
+  },
+  "homepage": "https://github.com/ladderio/ngx-tribute#readme"
+}
