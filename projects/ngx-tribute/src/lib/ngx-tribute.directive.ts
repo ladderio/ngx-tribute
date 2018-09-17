@@ -1,14 +1,13 @@
 import {Directive, ElementRef, EventEmitter, Input, OnInit, Optional, Output} from '@angular/core';
-import {FormControl, FormControlDirective, FormControlName} from '@angular/forms';
-
-declare const Tribute;
+import {FormControl, FormControlDirective, FormControlName, NgModel} from '@angular/forms';
+import Tribute, {TributeOptions} from 'tributejs';
 
 @Directive({
     selector: '[ngxTribute]'
 })
-export class NgxTributeDirective implements OnInit {
+export class NgxTributeDirective<T> implements OnInit {
     @Input('ngxTribute')
-    options: any;
+    options: TributeOptions<T>;
 
     @Input()
     implicitFormControl: FormControl;
@@ -21,13 +20,15 @@ export class NgxTributeDirective implements OnInit {
     constructor(
         private element: ElementRef,
         @Optional() private formControlName: FormControlName,
-        @Optional() private formControlDirective: FormControlDirective
+        @Optional() private formControlDirective: FormControlDirective,
+        @Optional() private ngModelDirective: NgModel
     ) {}
 
     get control(): FormControl {
         return this.implicitFormControl ||
             (this.formControlName && this.formControlName.control) ||
-            (this.formControlDirective && this.formControlDirective.control);
+            (this.formControlDirective && this.formControlDirective.control) ||
+            (this.ngModelDirective && this.ngModelDirective.control);
     }
 
     ngOnInit() {
