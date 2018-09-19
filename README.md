@@ -19,7 +19,7 @@ import {NgxTributeModule} from 'ngx-tribute';
 
 @NgModule({
   imports: [
-    NgxTributeModule,
+    NgxTributeModule
   ],
   ...
 })
@@ -44,3 +44,13 @@ Contributing
 - run `npm install` after cloning the repo and `npm start` to start a dev server
 - whenever you change something in the library code, you need to run `npm run build-lib` to see that changes in demo app
 - after finishing, run `npm run build-demo` to rebuild a demo app
+
+Story behind this lib
+--
+
+We were rewriting a project from AngularJS 1.5 to Angular 2 and faced the lack of a good library for @mentions in the new Angular.
+There were some, but we needed a good support for `[contenteditable]`, and none of existing solutions satisfied our needs.
+We decided to check for some lib written in pure JS and add an Angular wrapper for it.
+We were so happy with the result, that we decided to share that with the rest of the world :)
+
+[This is just a tribute](https://www.youtube.com/watch?v=_lK4cX5xGiQ)

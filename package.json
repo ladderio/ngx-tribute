@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build --prod ngx-tribute",
+    "build-lib": "ng build --prod ngx-tribute && cp README.md dist/ngx-tribute",
     "build-demo": "npm run build-lib && ng build ngx-tribute-app && rm -rf docs && cp -rf dist/ngx-tribute-app docs && bin/replaceBase.js",
     "publish-package": "npm run build-lib && cd dist/ngx-tribute && npm publish"
   },
