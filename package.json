@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build --prod ngx-tribute"
+    "build-lib": "ng build --prod ngx-tribute",
+    "build-demo": "ng build ngx-tribute-app && cp dist/ngx-tribute-app docs"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +24,7 @@
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
-    "tributejs": "^3.3.4",
+    "tributejs": "^3.3.5",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
