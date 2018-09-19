@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-lib": "ng build --prod ngx-tribute",
-    "build-demo": "ng build ngx-tribute-app && rm -rf docs && cp -rf dist/ngx-tribute-app docs && bin/replaceBase.js"
+    "build-demo": "npm run build-lib && ng build ngx-tribute-app && rm -rf docs && cp -rf dist/ngx-tribute-app docs && bin/replaceBase.js",
+    "publish-package": "npm run build-lib && cd dist/ngx-tribute && npm publish"
   },
   "private": true,
   "dependencies": {
