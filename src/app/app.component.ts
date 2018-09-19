@@ -33,6 +33,10 @@ interface TributeValue {
             <input formControlName="control" [ngxTribute]="options">
             Value of form: {{ form.value | json }}
         </div>
+
+        <h2>Passing <code>FormControl</code> manually</h2>
+        <input [implicitFormControl]="customControl" [ngxTribute]="options">
+        Value of control: {{ customControl.value }}
     `
 })
 export class AppComponent {
@@ -49,6 +53,7 @@ export class AppComponent {
     form = this.fb.group({
         control: ['']
     });
+    customControl = this.fb.control('Initial state');
 
     constructor(private fb: FormBuilder) {}
 }

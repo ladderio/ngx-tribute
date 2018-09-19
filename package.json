@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-lib": "ng build --prod ngx-tribute",
-    "build-demo": "ng build ngx-tribute-app && rm -rf docs && cp -rf dist/ngx-tribute-app docs && cp _config.yml docs/"
+    "build-demo": "ng build ngx-tribute-app && rm -rf docs && cp -rf dist/ngx-tribute-app docs && bin/replaceBase.js"
   },
   "private": true,
   "dependencies": {
