@@ -32,6 +32,8 @@ and use `[ngxTribute]` directive on your `input`, `textarea` or `[contenteditabl
 <input [ngxTribute]="tributeOptions">
 ```
 
+Import default CSS from `node_modules/tributejs/dist/tribute.css` to get a minimal working example.
+
 Check [tributejs docs](https://github.com/zurb/tribute#a-collection) for a detailed description of the configuration object.
 
 Check [a demo](https://ladderio.github.io/ngx-tribute/) and [it's code](https://github.com/ladderio/ngx-tribute/blob/master/src/app/app.component.ts)
