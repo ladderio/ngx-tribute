@@ -43,7 +43,9 @@ Contributing
 --
 
 - library code is located in `projects/ngx-tribute` and demo code in `src`
-- run `npm install` after cloning the repo and `npm start` to start a dev server
+- run `npm install` after cloning the repo
+- run `npm run build-lib` to build the library used by demo app
+- run `npm start` to start a dev server with demo app
 - whenever you change something in the library code, you need to run `npm run build-lib` to see that changes in demo app
 - after finishing, run `npm run build-demo` to rebuild a demo app
 
