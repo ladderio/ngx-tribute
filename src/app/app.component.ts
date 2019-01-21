@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {TributeOptions} from 'tributejs';
 import {FormBuilder} from '@angular/forms';
+import {NgxTributeDirective} from '../../projects/ngx-tribute/src/lib/ngx-tribute.directive';
 
 interface TributeValue {
     key: string;
@@ -37,9 +38,16 @@ interface TributeValue {
         <h2>Passing <code>FormControl</code> manually</h2>
         <input [implicitFormControl]="customControl" [ngxTribute]="options">
         Value of control: {{ customControl.value }}
+
+        <h2>Referencing <code>Tribute</code> instance</h2>
+        <input [ngxTribute]="options" #tributeDirective="ngx-tribute">
+        <p>Usage via view: is active - {{ tributeDirective.tribute.isActive }}</p>
+        <p>Usage via component: is active - {{ tributeDirectiveInComponent.tribute.isActive }}</p>
     `
 })
 export class AppComponent {
+    @ViewChild('tributeDirective') tributeDirectiveInComponent: NgxTributeDirective<TributeValue>;
+
     options: TributeOptions<TributeValue> = {
         values: [
             { key: 'foo', value: 'Foo' },

@@ -3,7 +3,8 @@ import {FormControl, FormControlDirective, FormControlName, NgModel} from '@angu
 import Tribute, {TributeOptions} from 'tributejs';
 
 @Directive({
-    selector: '[ngxTribute]'
+    selector: '[ngxTribute]',
+    exportAs: 'ngx-tribute'
 })
 export class NgxTributeDirective<T> implements OnInit {
     @Input('ngxTribute')
@@ -15,7 +16,7 @@ export class NgxTributeDirective<T> implements OnInit {
     @Output()
     onMentioned = new EventEmitter<string>();
 
-    tribute;
+    tribute: Tribute<T>;
 
     constructor(
         private element: ElementRef,
