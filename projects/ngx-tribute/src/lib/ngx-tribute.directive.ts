@@ -1,4 +1,4 @@
-import {Directive, ElementRef, EventEmitter, Input, OnInit, Optional, Output} from '@angular/core';
+import {Directive, ElementRef, EventEmitter, Input, OnInit, Optional, Output, OnDestroy} from '@angular/core';
 import {FormControl, FormControlDirective, FormControlName, NgModel} from '@angular/forms';
 import Tribute, {TributeOptions} from 'tributejs';
 
@@ -6,7 +6,7 @@ import Tribute, {TributeOptions} from 'tributejs';
     selector: '[ngxTribute]',
     exportAs: 'ngx-tribute'
 })
-export class NgxTributeDirective<T> implements OnInit {
+export class NgxTributeDirective<T> implements OnInit, OnDestroy {
     @Input('ngxTribute')
     options: TributeOptions<T>;
 
@@ -49,5 +49,9 @@ export class NgxTributeDirective<T> implements OnInit {
                 this.control.setValue(value);
             }
         });
+    }
+
+    ngOnDestroy() {
+        if (this.tribute) this.tribute.detach(this.element.nativeElement);   
     }
 }

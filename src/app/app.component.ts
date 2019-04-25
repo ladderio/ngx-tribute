@@ -43,6 +43,10 @@ interface TributeValue {
         <input [ngxTribute]="options" #tributeDirective="ngx-tribute">
         <p>Usage via view: is active - {{ tributeDirective.tribute.isActive }}</p>
         <p>Usage via component: is active - {{ tributeDirectiveInComponent.tribute.isActive }}</p>
+
+        <h2>Dynamically adding/removing tribute Directive</h2>
+        <button (click)="showInput = !showInput">toggle</button>
+        <input *ngIf="showInput" [ngxTribute]="options">
     `
 })
 export class AppComponent {
@@ -56,6 +60,7 @@ export class AppComponent {
         ]
     };
 
+    showInput = true; // On showInput = false, the tribute container gets cleaned up.
     lastMention;
     ngModelValue;
     form = this.fb.group({
