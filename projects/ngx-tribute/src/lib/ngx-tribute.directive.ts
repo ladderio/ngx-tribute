@@ -52,6 +52,8 @@ export class NgxTributeDirective<T> implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        if (this.tribute) this.tribute.detach(this.element.nativeElement);   
+        if (this.tribute) {
+            this.tribute.detach(this.element.nativeElement);
+        }
     }
 }
