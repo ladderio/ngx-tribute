@@ -39,6 +39,28 @@ Check [tributejs docs](https://github.com/zurb/tribute#a-collection) for a detai
 Check [a demo](https://ladderio.github.io/ngx-tribute/) and [it's code](https://github.com/ladderio/ngx-tribute/blob/master/src/app/app.component.ts)
 to see different ways of using the directive. It integrates well with template forms and reactive forms.
 
+API Docs
+--
+
+Inputs:
+
+- `[ngxTribute]` - Tribute.js configuration object, refer to [original library docs](https://github.com/zurb/tribute#a-collection) for details
+- `[implicitFormControl]` - pass `FormControl` if it's value will be altered by Tribute
+  (this isn't required if you use `[formControl]` or `[formControlName]` directives)
+  
+Outputs:
+
+- `(onMentioned)` - emits the whole value of input each time when a new mention is added
+
+Reactive forms
+--
+
+When using Angular reactive forms, form control value needs to be updated whenever you select any mention.
+This directive does it automatically by intercepting Angular `[formControl]` or `[formControlName]`
+directive attached to the same element as Tribute.js or one of its ancestors.
+If for some reason you're not using standard directives, you can use `[implicitFormControl]`
+input to pass form control, which should be updated, directly to `ngxTribute` directive.
+
 Contributing
 --
 
