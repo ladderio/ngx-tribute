@@ -1,6 +1,6 @@
 import {Directive, ElementRef, EventEmitter, Input, OnInit, Optional, Output, OnDestroy} from '@angular/core';
 import {FormControl, FormControlDirective, FormControlName, NgModel} from '@angular/forms';
-import Tribute, {TributeOptions} from 'tributejs';
+import Tribute, {TributeCollection, TributeOptions} from 'tributejs';
 
 @Directive({
     selector: '[ngxTribute]',
@@ -9,6 +9,9 @@ import Tribute, {TributeOptions} from 'tributejs';
 export class NgxTributeDirective<T> implements OnInit, OnDestroy {
     @Input('ngxTribute')
     options: TributeOptions<T>;
+
+    @Input()
+    menuContainer: HTMLElement;
 
     @Input()
     implicitFormControl: FormControl;
@@ -33,7 +36,13 @@ export class NgxTributeDirective<T> implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.tribute = new Tribute(this.options);
+        const options: TributeOptions<T> = { ...this.options };
+
+        if (this.menuContainer) {
+            (options as TributeCollection<T>).menuContainer = this.menuContainer;
+        }
+
+        this.tribute = new Tribute(options);
         this.tribute.attach(this.element.nativeElement);
 
         this.element.nativeElement.addEventListener('tribute-replaced', () => {

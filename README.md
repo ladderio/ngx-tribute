@@ -47,6 +47,9 @@ Inputs:
 - `[ngxTribute]` - Tribute.js configuration object, refer to [original library docs](https://github.com/zurb/tribute#a-collection) for details
 - `[implicitFormControl]` - pass `FormControl` if it's value will be altered by Tribute
   (this isn't required if you use `[formControl]` or `[formControlName]` directives)
+- `[menuContainer]` - if you want to use `menuContainer` option from Tribute.js, pass element obtained
+  by template ref variable here, instead of manually retrieving element from DOM. See "Using `menuContainer`"
+  below for an explanation and example
   
 Outputs:
 
@@ -60,6 +63,33 @@ This directive does it automatically by intercepting Angular `[formControl]` or 
 directive attached to the same element as Tribute.js or one of its ancestors.
 If for some reason you're not using standard directives, you can use `[implicitFormControl]`
 input to pass form control, which should be updated, directly to `ngxTribute` directive.
+
+Using `menuContainer`
+--
+
+Tribute.js allows to pass a DOM element, to which menu should be attached, by using `menuContainer` option.
+It's a bad practice in Angular to obtain elements via `document` methods (eg. `document.getElementById()`).
+Angular gives it's own methods for accessing DOM nodes. In this case, Template Reference Variable should be used.
+
+See following example:
+```typescript
+@Component({
+    template: `
+        <input [ngxTribute]="options" [menuContainer]="container">
+        <div #container></div>
+    `
+})
+class MyComponent {
+    options = {
+        values: [
+            { key: 'foo', value: 'Foo' },
+            { key: 'bar', value: 'Bar' },
+            { key: 'baz', value: 'Baz' }
+        ],
+        positionMenu: false
+    }
+}
+```
 
 Contributing
 --

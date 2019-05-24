@@ -11,10 +11,12 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxTributeModule", function() { return NgxTributeModule; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxTributeDirective", function() { return NgxTributeDirective; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var tributejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tributejs */ "./node_modules/tributejs/dist/tribute.js");
-/* harmony import */ var tributejs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tributejs__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var tributejs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tributejs */ "./node_modules/tributejs/dist/tribute.js");
+/* harmony import */ var tributejs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tributejs__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -32,7 +34,7 @@ var NgxTributeDirective = /** @class */ (function () {
         this.formControlName = formControlName;
         this.formControlDirective = formControlDirective;
         this.ngModelDirective = ngModelDirective;
-        this.onMentioned = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onMentioned = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     Object.defineProperty(NgxTributeDirective.prototype, "control", {
         get: /**
@@ -55,7 +57,12 @@ var NgxTributeDirective = /** @class */ (function () {
      */
     function () {
         var _this = this;
-        this.tribute = new tributejs__WEBPACK_IMPORTED_MODULE_2___default.a(this.options);
+        /** @type {?} */
+        var options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.options);
+        if (this.menuContainer) {
+            (/** @type {?} */ (options)).menuContainer = this.menuContainer;
+        }
+        this.tribute = new tributejs__WEBPACK_IMPORTED_MODULE_3___default.a(options);
         this.tribute.attach(this.element.nativeElement);
         this.element.nativeElement.addEventListener('tribute-replaced', function () {
             /** @type {?} */
@@ -75,26 +82,28 @@ var NgxTributeDirective = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        if (this.tribute)
+        if (this.tribute) {
             this.tribute.detach(this.element.nativeElement);
+        }
     };
     NgxTributeDirective.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"], args: [{
                     selector: '[ngxTribute]',
                     exportAs: 'ngx-tribute'
                 },] },
     ];
     /** @nocollapse */
     NgxTributeDirective.ctorParameters = function () { return [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }] },
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlDirective"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }] },
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }] }
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControlName"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControlDirective"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgModel"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
     ]; };
     NgxTributeDirective.propDecorators = {
-        options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['ngxTribute',] }],
-        implicitFormControl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-        onMentioned: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }]
+        options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['ngxTribute',] }],
+        menuContainer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        implicitFormControl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        onMentioned: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
     };
     return NgxTributeDirective;
 }());
@@ -107,7 +116,7 @@ var NgxTributeModule = /** @class */ (function () {
     function NgxTributeModule() {
     }
     NgxTributeModule.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"], args: [{
                     imports: [],
                     declarations: [NgxTributeDirective],
                     exports: [NgxTributeDirective]
@@ -128,7 +137,7 @@ var NgxTributeModule = /** @class */ (function () {
 
 
 
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd4LXRyaWJ1dGUuanMubWFwIiwic291cmNlcyI6WyJuZzovL25neC10cmlidXRlL2xpYi9uZ3gtdHJpYnV0ZS5kaXJlY3RpdmUudHMiLCJuZzovL25neC10cmlidXRlL2xpYi9uZ3gtdHJpYnV0ZS5tb2R1bGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtEaXJlY3RpdmUsIEVsZW1lbnRSZWYsIEV2ZW50RW1pdHRlciwgSW5wdXQsIE9uSW5pdCwgT3B0aW9uYWwsIE91dHB1dCwgT25EZXN0cm95fSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7Rm9ybUNvbnRyb2wsIEZvcm1Db250cm9sRGlyZWN0aXZlLCBGb3JtQ29udHJvbE5hbWUsIE5nTW9kZWx9IGZyb20gJ0Bhbmd1bGFyL2Zvcm1zJztcbmltcG9ydCBUcmlidXRlLCB7VHJpYnV0ZU9wdGlvbnN9IGZyb20gJ3RyaWJ1dGVqcyc7XG5cbkBEaXJlY3RpdmUoe1xuICAgIHNlbGVjdG9yOiAnW25neFRyaWJ1dGVdJyxcbiAgICBleHBvcnRBczogJ25neC10cmlidXRlJ1xufSlcbmV4cG9ydCBjbGFzcyBOZ3hUcmlidXRlRGlyZWN0aXZlPFQ+IGltcGxlbWVudHMgT25Jbml0LCBPbkRlc3Ryb3kge1xuICAgIEBJbnB1dCgnbmd4VHJpYnV0ZScpXG4gICAgb3B0aW9uczogVHJpYnV0ZU9wdGlvbnM8VD47XG5cbiAgICBASW5wdXQoKVxuICAgIGltcGxpY2l0Rm9ybUNvbnRyb2w6IEZvcm1Db250cm9sO1xuXG4gICAgQE91dHB1dCgpXG4gICAgb25NZW50aW9uZWQgPSBuZXcgRXZlbnRFbWl0dGVyPHN0cmluZz4oKTtcblxuICAgIHRyaWJ1dGU6IFRyaWJ1dGU8VD47XG5cbiAgICBjb25zdHJ1Y3RvcihcbiAgICAgICAgcHJpdmF0ZSBlbGVtZW50OiBFbGVtZW50UmVmLFxuICAgICAgICBAT3B0aW9uYWwoKSBwcml2YXRlIGZvcm1Db250cm9sTmFtZTogRm9ybUNvbnRyb2xOYW1lLFxuICAgICAgICBAT3B0aW9uYWwoKSBwcml2YXRlIGZvcm1Db250cm9sRGlyZWN0aXZlOiBGb3JtQ29udHJvbERpcmVjdGl2ZSxcbiAgICAgICAgQE9wdGlvbmFsKCkgcHJpdmF0ZSBuZ01vZGVsRGlyZWN0aXZlOiBOZ01vZGVsXG4gICAgKSB7fVxuXG4gICAgZ2V0IGNvbnRyb2woKTogRm9ybUNvbnRyb2wge1xuICAgICAgICByZXR1cm4gdGhpcy5pbXBsaWNpdEZvcm1Db250cm9sIHx8XG4gICAgICAgICAgICAodGhpcy5mb3JtQ29udHJvbE5hbWUgJiYgdGhpcy5mb3JtQ29udHJvbE5hbWUuY29udHJvbCkgfHxcbiAgICAgICAgICAgICh0aGlzLmZvcm1Db250cm9sRGlyZWN0aXZlICYmIHRoaXMuZm9ybUNvbnRyb2xEaXJlY3RpdmUuY29udHJvbCkgfHxcbiAgICAgICAgICAgICh0aGlzLm5nTW9kZWxEaXJlY3RpdmUgJiYgdGhpcy5uZ01vZGVsRGlyZWN0aXZlLmNvbnRyb2wpO1xuICAgIH1cblxuICAgIG5nT25Jbml0KCkge1xuICAgICAgICB0aGlzLnRyaWJ1dGUgPSBuZXcgVHJpYnV0ZSh0aGlzLm9wdGlvbnMpO1xuICAgICAgICB0aGlzLnRyaWJ1dGUuYXR0YWNoKHRoaXMuZWxlbWVudC5uYXRpdmVFbGVtZW50KTtcblxuICAgICAgICB0aGlzLmVsZW1lbnQubmF0aXZlRWxlbWVudC5hZGRFdmVudExpc3RlbmVyKCd0cmlidXRlLXJlcGxhY2VkJywgKCkgPT4ge1xuICAgICAgICAgICAgY29uc3QgdmFsdWUgPSBbJ0lOUFVUJywgJ1RFWFRBUkVBJ10uaW5jbHVkZXMoXG4gICAgICAgICAgICAgICAgdGhpcy5lbGVtZW50Lm5hdGl2ZUVsZW1lbnQudGFnTmFtZVxuICAgICAgICAgICAgKVxuICAgICAgICAgICAgICAgID8gdGhpcy5lbGVtZW50Lm5hdGl2ZUVsZW1lbnQudmFsdWVcbiAgICAgICAgICAgICAgICA6IHRoaXMuZWxlbWVudC5uYXRpdmVFbGVtZW50LmlubmVySFRNTDtcblxuICAgICAgICAgICAgdGhpcy5vbk1lbnRpb25lZC5lbWl0KHZhbHVlKTtcblxuICAgICAgICAgICAgaWYgKHRoaXMuY29udHJvbCkge1xuICAgICAgICAgICAgICAgIHRoaXMuY29udHJvbC5zZXRWYWx1ZSh2YWx1ZSk7XG4gICAgICAgICAgICB9XG4gICAgICAgIH0pO1xuICAgIH1cblxuICAgIG5nT25EZXN0cm95KCkge1xuICAgICAgICBpZiAodGhpcy50cmlidXRlKSB0aGlzLnRyaWJ1dGUuZGV0YWNoKHRoaXMuZWxlbWVudC5uYXRpdmVFbGVtZW50KTsgICBcbiAgICB9XG59XG4iLCJpbXBvcnQgeyBOZ01vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtOZ3hUcmlidXRlRGlyZWN0aXZlfSBmcm9tICcuL25neC10cmlidXRlLmRpcmVjdGl2ZSc7XG5cbkBOZ01vZHVsZSh7XG4gIGltcG9ydHM6IFtcbiAgXSxcbiAgZGVjbGFyYXRpb25zOiBbTmd4VHJpYnV0ZURpcmVjdGl2ZV0sXG4gIGV4cG9ydHM6IFtOZ3hUcmlidXRlRGlyZWN0aXZlXVxufSlcbmV4cG9ydCBjbGFzcyBOZ3hUcmlidXRlTW9kdWxlIHsgfVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7Ozs7SUFvQkksNkJBQ1ksU0FDWSxlQUFnQyxFQUNoQyxvQkFBMEMsRUFDMUMsZ0JBQXlCO1FBSHJDLFlBQU8sR0FBUCxPQUFPO1FBQ0ssb0JBQWUsR0FBZixlQUFlLENBQWlCO1FBQ2hDLHlCQUFvQixHQUFwQixvQkFBb0IsQ0FBc0I7UUFDMUMscUJBQWdCLEdBQWhCLGdCQUFnQixDQUFTOzJCQVJuQyxJQUFJLFlBQVksRUFBVTtLQVNwQztJQUVKLHNCQUFJLHdDQUFPOzs7O1FBQVg7WUFDSSxPQUFPLElBQUksQ0FBQyxtQkFBbUI7aUJBQzFCLElBQUksQ0FBQyxlQUFlLElBQUksSUFBSSxDQUFDLGVBQWUsQ0FBQyxPQUFPLENBQUM7aUJBQ3JELElBQUksQ0FBQyxvQkFBb0IsSUFBSSxJQUFJLENBQUMsb0JBQW9CLENBQUMsT0FBTyxDQUFDO2lCQUMvRCxJQUFJLENBQUMsZ0JBQWdCLElBQUksSUFBSSxDQUFDLGdCQUFnQixDQUFDLE9BQU8sQ0FBQyxDQUFDO1NBQ2hFOzs7T0FBQTs7OztJQUVELHNDQUFROzs7SUFBUjtRQUFBLGlCQWlCQztRQWhCRyxJQUFJLENBQUMsT0FBTyxHQUFHLElBQUksT0FBTyxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQztRQUN6QyxJQUFJLENBQUMsT0FBTyxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLGFBQWEsQ0FBQyxDQUFDO1FBRWhELElBQUksQ0FBQyxPQUFPLENBQUMsYUFBYSxDQUFDLGdCQUFnQixDQUFDLGtCQUFrQixFQUFFOztZQUM1RCxJQUFNLEtBQUssR0FBRyxDQUFDLE9BQU8sRUFBRSxVQUFVLENBQUMsQ0FBQyxRQUFRLENBQ3hDLEtBQUksQ0FBQyxPQUFPLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FDckM7a0JBQ0ssS0FBSSxDQUFDLE9BQU8sQ0FBQyxhQUFhLENBQUMsS0FBSztrQkFDaEMsS0FBSSxDQUFDLE9BQU8sQ0FBQyxhQUFhLENBQUMsU0FBUyxDQUFDO1lBRTNDLEtBQUksQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxDQUFDO1lBRTdCLElBQUksS0FBSSxDQUFDLE9BQU8sRUFBRTtnQkFDZCxLQUFJLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxLQUFLLENBQUMsQ0FBQzthQUNoQztTQUNKLENBQUMsQ0FBQztLQUNOOzs7O0lBRUQseUNBQVc7OztJQUFYO1FBQ0ksSUFBSSxJQUFJLENBQUMsT0FBTztZQUFFLElBQUksQ0FBQyxPQUFPLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsYUFBYSxDQUFDLENBQUM7S0FDckU7O2dCQW5ESixTQUFTLFNBQUM7b0JBQ1AsUUFBUSxFQUFFLGNBQWM7b0JBQ3hCLFFBQVEsRUFBRSxhQUFhO2lCQUMxQjs7OztnQkFQa0IsVUFBVTtnQkFDYyxlQUFlLHVCQXFCakQsUUFBUTtnQkFyQkksb0JBQW9CLHVCQXNCaEMsUUFBUTtnQkF0QjJDLE9BQU8sdUJBdUIxRCxRQUFROzs7MEJBZlosS0FBSyxTQUFDLFlBQVk7c0NBR2xCLEtBQUs7OEJBR0wsTUFBTTs7OEJBZlg7Ozs7Ozs7QUNBQTs7OztnQkFHQyxRQUFRLFNBQUM7b0JBQ1IsT0FBTyxFQUFFLEVBQ1I7b0JBQ0QsWUFBWSxFQUFFLENBQUMsbUJBQW1CLENBQUM7b0JBQ25DLE9BQU8sRUFBRSxDQUFDLG1CQUFtQixDQUFDO2lCQUMvQjs7MkJBUkQ7Ozs7Ozs7Ozs7Ozs7OzsifQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd4LXRyaWJ1dGUuanMubWFwIiwic291cmNlcyI6WyJuZzovL25neC10cmlidXRlL2xpYi9uZ3gtdHJpYnV0ZS5kaXJlY3RpdmUudHMiLCJuZzovL25neC10cmlidXRlL2xpYi9uZ3gtdHJpYnV0ZS5tb2R1bGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtEaXJlY3RpdmUsIEVsZW1lbnRSZWYsIEV2ZW50RW1pdHRlciwgSW5wdXQsIE9uSW5pdCwgT3B0aW9uYWwsIE91dHB1dCwgT25EZXN0cm95fSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7Rm9ybUNvbnRyb2wsIEZvcm1Db250cm9sRGlyZWN0aXZlLCBGb3JtQ29udHJvbE5hbWUsIE5nTW9kZWx9IGZyb20gJ0Bhbmd1bGFyL2Zvcm1zJztcbmltcG9ydCBUcmlidXRlLCB7VHJpYnV0ZUNvbGxlY3Rpb24sIFRyaWJ1dGVPcHRpb25zfSBmcm9tICd0cmlidXRlanMnO1xuXG5ARGlyZWN0aXZlKHtcbiAgICBzZWxlY3RvcjogJ1tuZ3hUcmlidXRlXScsXG4gICAgZXhwb3J0QXM6ICduZ3gtdHJpYnV0ZSdcbn0pXG5leHBvcnQgY2xhc3MgTmd4VHJpYnV0ZURpcmVjdGl2ZTxUPiBpbXBsZW1lbnRzIE9uSW5pdCwgT25EZXN0cm95IHtcbiAgICBASW5wdXQoJ25neFRyaWJ1dGUnKVxuICAgIG9wdGlvbnM6IFRyaWJ1dGVPcHRpb25zPFQ+O1xuXG4gICAgQElucHV0KClcbiAgICBtZW51Q29udGFpbmVyOiBIVE1MRWxlbWVudDtcblxuICAgIEBJbnB1dCgpXG4gICAgaW1wbGljaXRGb3JtQ29udHJvbDogRm9ybUNvbnRyb2w7XG5cbiAgICBAT3V0cHV0KClcbiAgICBvbk1lbnRpb25lZCA9IG5ldyBFdmVudEVtaXR0ZXI8c3RyaW5nPigpO1xuXG4gICAgdHJpYnV0ZTogVHJpYnV0ZTxUPjtcblxuICAgIGNvbnN0cnVjdG9yKFxuICAgICAgICBwcml2YXRlIGVsZW1lbnQ6IEVsZW1lbnRSZWYsXG4gICAgICAgIEBPcHRpb25hbCgpIHByaXZhdGUgZm9ybUNvbnRyb2xOYW1lOiBGb3JtQ29udHJvbE5hbWUsXG4gICAgICAgIEBPcHRpb25hbCgpIHByaXZhdGUgZm9ybUNvbnRyb2xEaXJlY3RpdmU6IEZvcm1Db250cm9sRGlyZWN0aXZlLFxuICAgICAgICBAT3B0aW9uYWwoKSBwcml2YXRlIG5nTW9kZWxEaXJlY3RpdmU6IE5nTW9kZWxcbiAgICApIHt9XG5cbiAgICBnZXQgY29udHJvbCgpOiBGb3JtQ29udHJvbCB7XG4gICAgICAgIHJldHVybiB0aGlzLmltcGxpY2l0Rm9ybUNvbnRyb2wgfHxcbiAgICAgICAgICAgICh0aGlzLmZvcm1Db250cm9sTmFtZSAmJiB0aGlzLmZvcm1Db250cm9sTmFtZS5jb250cm9sKSB8fFxuICAgICAgICAgICAgKHRoaXMuZm9ybUNvbnRyb2xEaXJlY3RpdmUgJiYgdGhpcy5mb3JtQ29udHJvbERpcmVjdGl2ZS5jb250cm9sKSB8fFxuICAgICAgICAgICAgKHRoaXMubmdNb2RlbERpcmVjdGl2ZSAmJiB0aGlzLm5nTW9kZWxEaXJlY3RpdmUuY29udHJvbCk7XG4gICAgfVxuXG4gICAgbmdPbkluaXQoKSB7XG4gICAgICAgIGNvbnN0IG9wdGlvbnM6IFRyaWJ1dGVPcHRpb25zPFQ+ID0geyAuLi50aGlzLm9wdGlvbnMgfTtcblxuICAgICAgICBpZiAodGhpcy5tZW51Q29udGFpbmVyKSB7XG4gICAgICAgICAgICAob3B0aW9ucyBhcyBUcmlidXRlQ29sbGVjdGlvbjxUPikubWVudUNvbnRhaW5lciA9IHRoaXMubWVudUNvbnRhaW5lcjtcbiAgICAgICAgfVxuXG4gICAgICAgIHRoaXMudHJpYnV0ZSA9IG5ldyBUcmlidXRlKG9wdGlvbnMpO1xuICAgICAgICB0aGlzLnRyaWJ1dGUuYXR0YWNoKHRoaXMuZWxlbWVudC5uYXRpdmVFbGVtZW50KTtcblxuICAgICAgICB0aGlzLmVsZW1lbnQubmF0aXZlRWxlbWVudC5hZGRFdmVudExpc3RlbmVyKCd0cmlidXRlLXJlcGxhY2VkJywgKCkgPT4ge1xuICAgICAgICAgICAgY29uc3QgdmFsdWUgPSBbJ0lOUFVUJywgJ1RFWFRBUkVBJ10uaW5jbHVkZXMoXG4gICAgICAgICAgICAgICAgdGhpcy5lbGVtZW50Lm5hdGl2ZUVsZW1lbnQudGFnTmFtZVxuICAgICAgICAgICAgKVxuICAgICAgICAgICAgICAgID8gdGhpcy5lbGVtZW50Lm5hdGl2ZUVsZW1lbnQudmFsdWVcbiAgICAgICAgICAgICAgICA6IHRoaXMuZWxlbWVudC5uYXRpdmVFbGVtZW50LmlubmVySFRNTDtcblxuICAgICAgICAgICAgdGhpcy5vbk1lbnRpb25lZC5lbWl0KHZhbHVlKTtcblxuICAgICAgICAgICAgaWYgKHRoaXMuY29udHJvbCkge1xuICAgICAgICAgICAgICAgIHRoaXMuY29udHJvbC5zZXRWYWx1ZSh2YWx1ZSk7XG4gICAgICAgICAgICB9XG4gICAgICAgIH0pO1xuICAgIH1cblxuICAgIG5nT25EZXN0cm95KCkge1xuICAgICAgICBpZiAodGhpcy50cmlidXRlKSB7XG4gICAgICAgICAgICB0aGlzLnRyaWJ1dGUuZGV0YWNoKHRoaXMuZWxlbWVudC5uYXRpdmVFbGVtZW50KTtcbiAgICAgICAgfVxuICAgIH1cbn1cbiIsImltcG9ydCB7IE5nTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQge05neFRyaWJ1dGVEaXJlY3RpdmV9IGZyb20gJy4vbmd4LXRyaWJ1dGUuZGlyZWN0aXZlJztcblxuQE5nTW9kdWxlKHtcbiAgaW1wb3J0czogW1xuICBdLFxuICBkZWNsYXJhdGlvbnM6IFtOZ3hUcmlidXRlRGlyZWN0aXZlXSxcbiAgZXhwb3J0czogW05neFRyaWJ1dGVEaXJlY3RpdmVdXG59KVxuZXhwb3J0IGNsYXNzIE5neFRyaWJ1dGVNb2R1bGUgeyB9XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7OztJQXVCSSw2QkFDWSxTQUNZLGVBQWdDLEVBQ2hDLG9CQUEwQyxFQUMxQyxnQkFBeUI7UUFIckMs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
 
 /***/ }),
 
@@ -146,6 +155,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var tributejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tributejs */ "./node_modules/tributejs/dist/tribute.js");
 /* harmony import */ var tributejs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tributejs__WEBPACK_IMPORTED_MODULE_2__);
+var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -181,7 +198,11 @@ var NgxTributeDirective = /** @class */ (function () {
     });
     NgxTributeDirective.prototype.ngOnInit = function () {
         var _this = this;
-        this.tribute = new tributejs__WEBPACK_IMPORTED_MODULE_2___default.a(this.options);
+        var options = __assign({}, this.options);
+        if (this.menuContainer) {
+            options.menuContainer = this.menuContainer;
+        }
+        this.tribute = new tributejs__WEBPACK_IMPORTED_MODULE_2___default.a(options);
         this.tribute.attach(this.element.nativeElement);
         this.element.nativeElement.addEventListener('tribute-replaced', function () {
             var value = ['INPUT', 'TEXTAREA'].includes(_this.element.nativeElement.tagName)
@@ -194,13 +215,18 @@ var NgxTributeDirective = /** @class */ (function () {
         });
     };
     NgxTributeDirective.prototype.ngOnDestroy = function () {
-        if (this.tribute)
+        if (this.tribute) {
             this.tribute.detach(this.element.nativeElement);
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('ngxTribute'),
         __metadata("design:type", Object)
     ], NgxTributeDirective.prototype, "options", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", HTMLElement)
+    ], NgxTributeDirective.prototype, "menuContainer", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"])
@@ -252,6 +278,17 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/app.component.css":
+/*!***********************************!*\
+  !*** ./src/app/app.component.css ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".menu-container ::ng-deep .tribute-container {\n    position: static;\n}"
+
+/***/ }),
+
 /***/ "./src/app/app.component.ts":
 /*!**********************************!*\
   !*** ./src/app/app.component.ts ***!
@@ -287,6 +324,14 @@ var AppComponent = /** @class */ (function () {
                 { key: 'baz', value: 'Baz' }
             ]
         };
+        this.options2 = {
+            values: [
+                { key: 'foo', value: 'Foo' },
+                { key: 'bar', value: 'Bar' },
+                { key: 'baz', value: 'Baz' }
+            ],
+            positionMenu: false
+        };
         this.showInput = true; // On showInput = false, the tribute container gets cleaned up.
         this.form = this.fb.group({
             control: ['']
@@ -300,7 +345,8 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
-            template: "\n        <h1>ngx-tribute demo</h1>\n        <p>\n            This demo intends to demonstrate just <a href=\"https://github.com/ladderio/ngx-tribute\">ngx-tribute</a>\n            which is an Angular wrapper for <a href=\"https://github.com/zurb/tribute\">Zurb's Tribute</a>.\n            For complete reference of available configuration please refer to the original library docs.\n        </p>\n\n        <h2>Simple usage on text input</h2>\n        <input [ngxTribute]=\"options\">\n\n        <h2>Retrieving a selected value</h2>\n        <input [ngxTribute]=\"options\" (onMentioned)=\"lastMention = $event\">\n        Value after mention: {{ lastMention }}\n\n        <h2>Usage with <code>ngModel</code></h2>\n        <input [(ngModel)]=\"ngModelValue\" [ngxTribute]=\"options\">\n        Value of <code>ngModel</code>: {{ ngModelValue }}\n\n        <h2>Usage with reactive forms and <code>FormControl</code></h2>\n        <div [formGroup]=\"form\">\n            <input formControlName=\"control\" [ngxTribute]=\"options\">\n            Value of form: {{ form.value | json }}\n        </div>\n\n        <h2>Passing <code>FormControl</code> manually</h2>\n        <input [implicitFormControl]=\"customControl\" [ngxTribute]=\"options\">\n        Value of control: {{ customControl.value }}\n\n        <h2>Referencing <code>Tribute</code> instance</h2>\n        <input [ngxTribute]=\"options\" #tributeDirective=\"ngx-tribute\">\n        <p>Usage via view: is active - {{ tributeDirective.tribute.isActive }}</p>\n        <p>Usage via component: is active - {{ tributeDirectiveInComponent.tribute.isActive }}</p>\n\n        <h2>Dynamically adding/removing tribute Directive</h2>\n        <button (click)=\"showInput = !showInput\">toggle</button>\n        <input *ngIf=\"showInput\" [ngxTribute]=\"options\">\n    "
+            template: "\n        <h1>ngx-tribute demo</h1>\n        <p>\n            This demo intends to demonstrate just <a href=\"https://github.com/ladderio/ngx-tribute\">ngx-tribute</a>\n            which is an Angular wrapper for <a href=\"https://github.com/zurb/tribute\">Zurb's Tribute</a>.\n            For complete reference of available configuration please refer to the original library docs.\n        </p>\n\n        <h2>Simple usage on text input</h2>\n        <input [ngxTribute]=\"options\">\n\n        <h2>Retrieving a selected value</h2>\n        <input [ngxTribute]=\"options\" (onMentioned)=\"lastMention = $event\">\n        Value after mention: {{ lastMention }}\n\n        <h2>Usage with <code>ngModel</code></h2>\n        <input [(ngModel)]=\"ngModelValue\" [ngxTribute]=\"options\">\n        Value of <code>ngModel</code>: {{ ngModelValue }}\n\n        <h2>Usage with reactive forms and <code>FormControl</code></h2>\n        <div [formGroup]=\"form\">\n            <input formControlName=\"control\" [ngxTribute]=\"options\">\n            Value of form: {{ form.value | json }}\n        </div>\n\n        <h2>Passing <code>FormControl</code> manually</h2>\n        <input [implicitFormControl]=\"customControl\" [ngxTribute]=\"options\">\n        Value of control: {{ customControl.value }}\n\n        <h2>Referencing <code>Tribute</code> instance</h2>\n        <input [ngxTribute]=\"options\" #tributeDirective=\"ngx-tribute\">\n        <p>Usage via view: is active - {{ tributeDirective.tribute.isActive }}</p>\n        <p>Usage via component: is active - {{ tributeDirectiveInComponent.tribute.isActive }}</p>\n\n        <h2>Dynamically adding/removing tribute Directive</h2>\n        <button (click)=\"showInput = !showInput\">toggle</button>\n        <input *ngIf=\"showInput\" [ngxTribute]=\"options\">\n\n        <h2>Using <code>menuContainer</code></h2>\n        <input [ngxTribute]=\"options2\" [menuContainer]=\"container\">\n        <div #container class=\"menu-container\"></div>\n    ",
+            styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]])
     ], AppComponent);

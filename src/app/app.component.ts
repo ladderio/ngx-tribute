@@ -47,7 +47,12 @@ interface TributeValue {
         <h2>Dynamically adding/removing tribute Directive</h2>
         <button (click)="showInput = !showInput">toggle</button>
         <input *ngIf="showInput" [ngxTribute]="options">
-    `
+
+        <h2>Using <code>menuContainer</code></h2>
+        <input [ngxTribute]="options2" [menuContainer]="container">
+        <div #container class="menu-container"></div>
+    `,
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
     @ViewChild('tributeDirective') tributeDirectiveInComponent: NgxTributeDirective<TributeValue>;
@@ -58,6 +63,14 @@ export class AppComponent {
             { key: 'bar', value: 'Bar' },
             { key: 'baz', value: 'Baz' }
         ]
+    };
+    options2 = {
+        values: [
+            { key: 'foo', value: 'Foo' },
+            { key: 'bar', value: 'Bar' },
+            { key: 'baz', value: 'Baz' }
+        ],
+        positionMenu: false
     };
 
     showInput = true; // On showInput = false, the tribute container gets cleaned up.
