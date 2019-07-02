@@ -19,6 +19,9 @@ export class NgxTributeDirective<T> implements OnInit, OnDestroy {
     @Output()
     onMentioned = new EventEmitter<string>();
 
+    @Output()
+    mentionItemSelected = new EventEmitter<any>();
+
     tribute: Tribute<T>;
 
     constructor(
@@ -45,7 +48,7 @@ export class NgxTributeDirective<T> implements OnInit, OnDestroy {
         this.tribute = new Tribute(options);
         this.tribute.attach(this.element.nativeElement);
 
-        this.element.nativeElement.addEventListener('tribute-replaced', () => {
+        this.element.nativeElement.addEventListener('tribute-replaced', (event) => {
             const value = ['INPUT', 'TEXTAREA'].includes(
                 this.element.nativeElement.tagName
             )
@@ -53,6 +56,7 @@ export class NgxTributeDirective<T> implements OnInit, OnDestroy {
                 : this.element.nativeElement.innerHTML;
 
             this.onMentioned.emit(value);
+            this.mentionItemSelected.emit(event.detail.item.original);
 
             if (this.control) {
                 this.control.setValue(value);
