@@ -1,6 +1,7 @@
 # ngx-tribute
 
-This is an Angular 2+ wrapper directive for native JS library for @mentions - [tributejs](https://github.com/zurb/tribute)
+This is an Angular 2+ wrapper directive for native JS library for @mentions - [tributejs](https://github.com/zurb/tribute).
+It supports contenteditable and Reactive Forms.
 
 To install:
 ```
@@ -64,6 +65,8 @@ This directive does it automatically by intercepting Angular `[formControl]` or 
 directive attached to the same element as Tribute.js or one of its ancestors.
 If for some reason you're not using standard directives, you can use `[implicitFormControl]`
 input to pass form control, which should be updated, directly to `ngxTribute` directive.
+
+See [demo app](https://ladderio.github.io/ngx-tribute/) and [it's code](https://github.com/ladderio/ngx-tribute/blob/master/src/app/app.component.ts) for an example.
 
 Using `menuContainer`
 --
