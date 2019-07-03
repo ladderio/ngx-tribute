@@ -26,7 +26,7 @@ interface TributeValue {
         Value after mention: {{ lastMention }}
 
         <h2>Retrieving the original item</h2>
-        <input [ngxTribut]="advancedOptions" (mentionItemSelected)="advancedMention = $event">
+        <input [ngxTribute]="advancedOptions" (mentionItemSelected)="advancedMention = $event">
         Original Item recieved from mention:
         <p *ngIf="advancedMention">
             Key: {{ advancedMention.key }} <br>
