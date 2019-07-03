@@ -25,6 +25,15 @@ interface TributeValue {
         <input [ngxTribute]="options" (onMentioned)="lastMention = $event">
         Value after mention: {{ lastMention }}
 
+        <h2>Retrieving the original item</h2>
+        <input [ngxTribute]="advancedOptions" (mentionItemSelected)="advancedMention = $event">
+        Original Item recieved from mention:
+        <p *ngIf="advancedMention">
+            Key: {{ advancedMention.key }} <br>
+            Value: {{ advancedMention.value }} <br>
+            Id: {{ advancedMention.id }}
+        </p>
+
         <h2>Usage with <code>ngModel</code></h2>
         <input [(ngModel)]="ngModelValue" [ngxTribute]="options">
         Value of <code>ngModel</code>: {{ ngModelValue }}
@@ -73,8 +82,17 @@ export class AppComponent {
         positionMenu: false
     };
 
+    advancedOptions = {
+        values: [
+            { key: 'foo', value: 'Foo', id: '1'},
+            { key: 'bar', value: 'Bar', id: '2' },
+            { key: 'baz', value: 'Baz', id: '3' }
+        ]
+    };
+
     showInput = true; // On showInput = false, the tribute container gets cleaned up.
     lastMention;
+    advancedMention;
     ngModelValue;
     form = this.fb.group({
         control: ['']

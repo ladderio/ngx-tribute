@@ -54,6 +54,7 @@ Inputs:
 Outputs:
 
 - `(onMentioned)` - emits the whole value of input each time when a new mention is added
+- `(mentionItemSelected)` - emits the original object of input each time when a new mention is added
 
 Reactive forms
 --
