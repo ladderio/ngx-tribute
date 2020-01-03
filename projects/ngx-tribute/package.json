@@ -17,10 +17,12 @@
   },
   "keywords": [
     "mentions",
+    "mention",
     "tribute",
-    "angular"
+    "angular",
+    "angular2"
   ],
-  "author": "Adrian Slipko <adrian@ladder.io>",
+  "author": "Adrian Slipko <slipko.adrian@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ladderio/ngx-tribute/issues"
