@@ -13,6 +13,9 @@
     "publish-package": "npm run build-lib && cd dist/ngx-tribute && npm publish"
   },
   "private": true,
+  "peerDependencies": {
+    "tributejs": ">=3.3.5"
+  },
   "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/common": "^6.1.0",
@@ -25,7 +28,6 @@
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
-    "tributejs": "^3.3.5",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -46,6 +48,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^3.0.0",
     "protractor": "~5.4.0",
+    "tributejs": "~5.0.1",
     "ts-node": "~5.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
