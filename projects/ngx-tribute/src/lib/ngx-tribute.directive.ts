@@ -20,6 +20,12 @@ export class NgxTributeDirective<T> implements OnInit, OnDestroy {
     onMentioned = new EventEmitter<string>();
 
     @Output()
+    onOpened = new EventEmitter<void>();
+
+    @Output()
+    onClosed = new EventEmitter<void>();
+
+    @Output()
     mentionItemSelected = new EventEmitter<any>();
 
     tribute: Tribute<T>;
@@ -61,6 +67,13 @@ export class NgxTributeDirective<T> implements OnInit, OnDestroy {
             if (this.control) {
                 this.control.setValue(value);
             }
+        });
+
+        this.element.nativeElement.addEventListener('tribute-active-true', ()=>{
+           this.onOpened.emit();
+        });
+        this.element.nativeElement.addEventListener('tribute-active-false', ()=>{
+           this.onClosed.emit();
         });
     }
 

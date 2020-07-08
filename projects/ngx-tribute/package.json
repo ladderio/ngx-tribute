@@ -5,7 +5,7 @@
     "@angular/common": ">=6.0.0 <9.0.0",
     "@angular/core": ">=6.0.0 <9.0.0",
     "@angular/forms": ">=6.0.0 <9.0.0",
-    "tributejs": "^3.3.5"
+    "tributejs": "^5.1.3"
   },
   "description": "Angular 2+ library for @mentions. Supports contenteditable and Reactive Forms.",
   "scripts": {

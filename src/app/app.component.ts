@@ -25,6 +25,10 @@ interface TributeValue {
         <input [ngxTribute]="options" (onMentioned)="lastMention = $event">
         Value after mention: {{ lastMention }}
 
+        <h2>Events for open/close</h2>
+        <input [ngxTribute]="options" (onOpened)="isOpen = true" (onClosed)="isOpen=false" />
+        Opened: {{isOpen?"Yes":"No"}}
+
         <h2>Retrieving the original item</h2>
         <input [ngxTribute]="advancedOptions" (mentionItemSelected)="advancedMention = $event">
         Original Item recieved from mention:
@@ -94,6 +98,7 @@ export class AppComponent {
     lastMention;
     advancedMention;
     ngModelValue;
+    isOpen = false;
     form = this.fb.group({
         control: ['']
     });
